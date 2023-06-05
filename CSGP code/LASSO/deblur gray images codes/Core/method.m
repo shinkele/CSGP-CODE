@@ -1,0 +1,19 @@
+function [x_algo,theta_debias,obj_algo,t_algo,debias_algo,mses_algo] = method(algo_name,args)
+%UNTITLED 此处显示有关此函数的摘要
+%   此处显示详细说明
+
+% args.y=y;args.A=A;args.tau=tau;args.Debias=0;args.AT=AT;
+% args.True_x=WT(f);args.Initialization=AT(y);
+% args.StopCriterion=1;args.ToleranceA=tolA;args.Verbose=0;
+
+[x_algo,theta_debias,obj_algo,t_algo,debias_algo,mses_algo]= feval(algo_name,args.y,args.A,args.tau,...
+	'Debias',args.Debias,...
+	'AT',args.AT,... 
+    'True_x',args.True_x,...
+	'Initialization',args.Initialization,... %0,...%
+	'StopCriterion',args.StopCriterion,...
+	'ToleranceA',args.ToleranceA,...
+     'Verbose',args.Verbose);
+
+end
+
